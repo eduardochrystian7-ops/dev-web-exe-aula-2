@@ -1,0 +1,297 @@
+:root {
+  /* =========================================================
+     PALETA DE CORES: MODO CLARO (Moderno e Premium)
+     ========================================================= */
+  --bg-color: #f9fafb;         /* Fundo quase branco, super limpo e suave */
+  --text-main: #111827;        /* Quase preto, excelente para leitura */
+  --text-muted: #6b7280;       /* Cinza neutro moderno para textos secundários */
+  
+  /* Gradiente vibrante para o Header (Estilo Indigo/Violeta) */
+  --header-light: #6366f1;     /* Indigo vibrante */
+  --header-dark: #4338ca;      /* Indigo profundo */
+  
+  /* Botões acompanhando o tom da marca */
+  --button-bg: #4f46e5;        /* Indigo forte */
+  --button-hover: #3730a3;     /* Indigo mais escuro para o hover */
+  
+  --card-bg: #ffffff;          /* Branco puro para destacar as seções */
+  --border-color: #e5e7eb;     /* Bordas bem sutis */
+  
+  --input-bg: #f9fafb;         /* Fundo levemente off-white para os inputs */
+  --input-border: #d1d5db;     /* Borda neutra para os inputs */
+}
+
+/* =========================================================
+   PALETA DE CORES: MODO ESCURO
+   ========================================================= */
+body.dark-theme {
+  --bg-color: #0f172a;         /* Fundo bem escuro (Slate 900) */
+  --text-main: #f8fafc;        /* Texto quase branco para boa leitura */
+  --text-muted: #94a3b8;       /* Texto secundário acinzentado */
+  --header-light: #1e293b;     /* Gradiente escuro */
+  --header-dark: #020617;      /* Gradiente quase preto */
+  --button-bg: #2563eb;        /* Azul levemente mais escuro para não ofuscar */
+  --button-hover: #1d4ed8;     /* Azul escuro no hover */
+  --card-bg: #1e293b;          /* Cards escuros para destacar do fundo */
+  --border-color: #334155;     /* Bordas escuras */
+  --input-bg: #0f172a;         /* Fundo escuro para os inputs */
+  --input-border: #475569;     /* Borda escura para os inputs */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--text-main);
+  background-color: var(--bg-color);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  /* Transição suave ao trocar de tema */
+  transition: background-color 0.3s ease, color 0.3s ease; 
+}
+
+header {
+  text-align: center;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, var(--header-light) 0%, var(--header-dark) 100%);
+  color: #f8fafc; /* Força o branco no header, independentemente do tema */
+  border-radius: 12px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+header p {
+  color: #cbd5e1;
+  font-size: 1.1rem;
+}
+
+section {
+  margin: 30px 0;
+  padding: 30px;
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  border: 1px solid var(--border-color);
+  /* Transição suave no fundo do card */
+  transition: background-color 0.3s ease, border-color 0.3s ease; 
+}
+
+section h2 {
+  color: var(--text-main); /* Usando a variável de texto principal agora */
+  margin-bottom: 15px;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 10px;
+}
+
+/* --- Estilização dos Botões --- */
+button {
+  background-color: var(--button-bg);
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+  background-color: var(--button-hover);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Estilos Adicionais Úteis --- */
+p {
+  margin-bottom: 15px;
+}
+
+a {
+  color: var(--button-bg);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--button-hover);
+  text-decoration: underline;
+}
+
+/* --- Estilização dos Campos de Formulário --- */
+label {
+  display: block;
+  font-weight: 600;
+  color: var(--text-main); /* Adaptado para mudar de cor no modo escuro */
+  margin-bottom: 8px;
+  margin-top: 15px;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--input-border);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--text-main);
+  background-color: var(--input-bg);
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.2s ease;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--button-bg);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2); /* Sombra ajustada para o tom Indigo */
+}
+
+section form button {
+  margin-top: 20px;
+  width: 100%;
+}
+
+/* =========================================================
+   Estilização do Botão de Alternar Tema (Header)
+   ========================================================= */
+.theme-toggle {
+  margin-top: 15px;
+  background-color: transparent; /* Fundo transparente para combinar com o header */
+  border: 2px solid #cbd5e1; /* Borda clarinha */
+  color: #f8fafc;
+  box-shadow: none;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+}
+
+.theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Efeito de brilho sutil no hover */
+  transform: translateY(0); /* Evita que o botão "pule" como os outros */
+  box-shadow: none;
+}
+
+/* =========================================================
+   NOVO: CLASSES DINÂMICAS (Usadas pelo JavaScript)
+   ========================================================= */
+
+/* Ocultar elementos (como o Loading) */
+.hidden {
+  display: none !important;
+}
+
+/* Estilo para os cards de usuários individuais */
+.user-card {
+  padding: 15px;
+  margin-top: 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--input-bg);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.user-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.user-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  color: var(--button-bg); /* O nome do usuário ganha a cor principal */
+}
+
+/* Estilo para as mensagens de feedback do formulário e erros */
+.feedback {
+  margin-top: 15px;
+  padding: 12px 15px;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.feedback.success {
+  background-color: #dcfce7;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+.feedback.error {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+/* Ajuste para o feedback de erro e sucesso no modo escuro */
+body.dark-theme .feedback.error {
+  background-color: #7f1d1d;
+  color: #fca5a5;
+  border-color: #991b1b;
+}
+
+body.dark-theme .feedback.success {
+  background-color: #14532d;
+  color: #86efac;
+  border-color: #166534;
+}
+
+/* =========================================================
+   NOVO: ANIMACÃO DE CARREGAMENTO (SPINNER)
+   ========================================================= */
+
+/* Alinha o texto e o spinner perfeitamente no centro */
+#loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin: 25px 0;
+}
+
+/* Garante que a classe .hidden continue escondendo o loading */
+#loading.hidden {
+  display: none !important;
+}
+
+/* Desenha o círculo do spinner */
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid var(--border-color); /* Borda neutra dependendo do tema */
+  border-top: 3px solid var(--button-bg); /* O "topo" do círculo ganha a cor principal */
+  border-radius: 50%; /* Transforma o quadrado em círculo */
+  animation: spin 1s linear infinite; /* Chama a animação abaixo */
+}
+
+/* Lógica da rotação (de 0 a 360 graus) */
+@keyframes spin {
+  0% { 
+    transform: rotate(0deg); 
+  }
+  100% { 
+    transform: rotate(360deg); 
+  }
+}
